@@ -30,6 +30,86 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/audio/audio_policy_volumes.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_volumes.xml \
     $(LOCAL_PATH)/audio/mixer_paths_idp.xml:$(TARGET_COPY_OUT_VENDOR)/etc/mixer_paths_idp.xml \
     $(LOCAL_PATH)/audio/sound_trigger_mixer_paths.xml:$(TARGET_COPY_OUT_VENDOR)/etc/sound_trigger_mixer_paths.xml
+    prebuilts/vndk/v29/arm64/arch-arm64-armv8-a/shared/vndk-sp/libc++.so:$(TARGET_COPY_OUT_VENDOR)/lib64/libc++.so
+
+# CNE
+PRODUCT_PACKAGES += \
+    cneapiclient \
+    com.quicinc.cne \
+    services-ext
+
+# Config Store
+PRODUCT_PACKAGES += \
+    disable_configstore
+
+# Device-specific settings
+PRODUCT_PACKAGES += \
+    XiaomiParts \
+    VioletParts
+
+# Display/Graphics
+PRODUCT_PACKAGES += \
+    android.hardware.graphics.composer@2.4-service \
+    android.hardware.graphics.mapper@3.0-impl-qti-display \
+    android.hardware.graphics.mapper@4.0-impl-qti-display \
+    android.hardware.memtrack@1.0-impl \
+    android.hardware.memtrack@1.0-service \
+    gralloc.sm6150 \
+    hwcomposer.sm6150 \
+    libdisplayconfig \
+    libtinyxml \
+    libvulkan \
+    memtrack.sm6150 \
+    vendor.qti.hardware.display.allocator-service
+
+# Display interfaces
+PRODUCT_PACKAGES += \
+    vendor.qti.hardware.display.composer@1.0.vendor \
+    vendor.qti.hardware.display.composer@2.0.vendor \
+    vendor.qti.hardware.display.mapper@2.0.vendor \
+    vendor.qti.hardware.display.mapper@3.0.vendor \
+    vendor.qti.hardware.display.mapper@4.0.vendor
+
+# DRM
+PRODUCT_PACKAGES += \
+    android.hardware.drm@1.3-service.clearkey
+
+# Fingerprint feature
+PRODUCT_COPY_FILES += \
+    frameworks/native/data/etc/android.hardware.fingerprint.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.fingerprint.xml
+
+PRODUCT_PACKAGES += \
+    android.hardware.biometrics.fingerprint@2.2-service.xiaomi_sm6150
+
+# FM
+PRODUCT_PACKAGES += \
+    FM2 \
+    libqcomfm_jni \
+    qcom.fmradio
+
+# Framework detect
+PRODUCT_PACKAGES += \
+    libqti_vndfwk_detect.vendor \
+    libvndfwk_detect_jni.qti.vendor
+
+# GPS
+PRODUCT_PACKAGES += \
+    android.hardware.gnss@2.1-impl-qti \
+    android.hardware.gnss@2.1-service-qti \
+    libavservices_minijail.vendor \
+    libbatching \
+    libgeofencing \
+    libgnss
+
+PRODUCT_COPY_FILES += \
+    $(call find-copy-subdir-files,*,$(LOCAL_PATH)/gps/etc/,$(TARGET_COPY_OUT_VENDOR)/etc)
+
+# Google Recorder
+TARGET_SUPPORTS_GOOGLE_RECORDER := true
+
+# Health
+PRODUCT_PACKAGES += \
+    android.hardware.health@2.0-service
 
 # Fingerprint
 PRODUCT_PACKAGES += \
@@ -67,6 +147,41 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/power/powerhint.json:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.json
 
 # Thermal
+PRODUCT_PACKAGES += \
+    android.hardware.thermal@1.0-impl \
+    android.hardware.thermal@1.0-service \
+    thermal.sm6150
+
+# Touchscreen
+PRODUCT_PACKAGES += \
+    libtinyxml2
+
+# USB
+PRODUCT_PACKAGES += \
+    android.hardware.usb@1.0-service
+
+# Vibrator
+PRODUCT_PACKAGES += \
+    vendor.qti.hardware.vibrator.service
+
+#VioletParts init
+PRODUCT_PACKAGES += \
+    init.violetparts.sh \
+    init.violetparts.rc
+
+# Wifi
+PRODUCT_PACKAGES += \
+    android.hardware.wifi@1.0-service \
+    hostapd \
+    libwifi-hal-ctrl \
+    libwifi-hal-qcom \
+    libwpa_client \
+    TetheringConfigOverlay \
+    wpa_cli \
+    wpa_supplicant \
+    wpa_supplicant.conf \
+    WifiOverlay
+
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/thermal/thermal_info_config.json:$(TARGET_COPY_OUT_VENDOR)/etc/thermal_info_config.json
 
