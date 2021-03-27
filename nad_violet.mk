@@ -7,8 +7,8 @@
 # Inherit from violet device
 $(call inherit-product, device/xiaomi/violet/device.mk)
 
-# Inherit some common ArrowOS stuff.
-$(call inherit-product, vendor/nusantara/config/common.mk)
+# Inherit some common NusantarROM stuff.
+$(call inherit-product, vendor/nusantara/config/common_full_phone.mk)
 TARGET_BOOT_ANIMATION_RES := 1080
 TARGET_GAPPS_ARCH := arm64
 IS_PHONE := true
